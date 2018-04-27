@@ -11,4 +11,4 @@ Source files for our recent published paper: Efficient Nonlinear Precoding for M
 %%%  1)   you should establish CVX which is avaliable at http://cvxr.com/cvx/
 %%%  2)   if you use our codes, please cite our paper
 %%%  3)   if you get any question for our codes, please contact    leochu@sjtu.edu.cn
-%%%  4)   we are appreciated for Dr Studer from Cornell University for the discussions for reproducing SQUID preocder. 
+%%%  4)   we are appreciated for Dr. Studer from Cornell University for the discussions for reproducing SQUID preocder. 
