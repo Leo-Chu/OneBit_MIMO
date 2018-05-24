@@ -3,7 +3,7 @@
 
 Source files for our recent published paper: Efficient Nonlinear Precoding for Massive MU-MIMO Downlink Systems with 1-Bit DACs;  If you use our codes, please cite our paper.
 
-%% developed by Lei Chu, Fei Wen and Robert Qi
+%% developed by Lei Chu and Fei Wen
 
 
 %% main simulation file for our published paper: Efficient Nonlinear Precoding for Massive MU-MIMO Downlink Systems with 1-Bit DACs; 
