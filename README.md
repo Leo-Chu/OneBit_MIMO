@@ -16,7 +16,7 @@ Source files for our recent published paper: Efficient Nonlinear Precoding for M
 (2)  If SDR-based precoders are employed for comparasion, you should establish CVX which is avaliable at http://cvxr.com/cvx/;
 
 (3)  If you use our codes, please cite our paper; 
-Chu L, Wen F, Li L, et al. Efficient Nonlinear Precoding for Massive MU-MIMO Downlink Systems with 1-Bit DACs[J]. 2018. Avaliable at arXiv:1804.08839;
+Chu L, Wen F, Li L, et al. Efficient Nonlinear Precoding for Massive MU-MIMO Downlink Systems with 1-Bit DACs[J]. 2018. Avaliable at  https://arxiv.org/abs/1804.08839;
 
 (4) If you get any question for our codes, please contact: leochu@sjtu.edu.cn;
 
