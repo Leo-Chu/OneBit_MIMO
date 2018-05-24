@@ -7,7 +7,7 @@ Source files for our recent published paper: Efficient Nonlinear Precoding for M
 
 %% main simulation file for our published paper: Efficient Nonlinear Precoding for Massive MU-MIMO Downlink Systems with 1-Bit DACs; 
 
-#  notes:
+## Notes:
 
 1)  Our simulation platform is revised from the Studer's simulator provided by "Quantized Precoding for Massive MU-MIMO", which is  avaible at https://github.com/quantizedmassivemimo/1bit_precoding; We have updated the proposed prcoder (ADMM_Leo--v2.m); Interested readers can directly add the file (ADMM_Leo--v2.m) into the Studer's simulator for performance comparasion; 
 
