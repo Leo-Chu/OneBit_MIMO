@@ -6,7 +6,7 @@ function [x, beta] = ADMM_Leo(par,s,H,N0)
     sR = [real(s) ; imag(s)];
 %     par.L = 4;
     if par.L == 2
-        C = eye(2*par.B);  bps = 2; %Q = bps/2; N0 = N0*Q; % 这里没有 虚拟向量扩充，所以信噪比没有变化！！
+        C = eye(2*par.B);  bps = 2; %Q = bps/2; N0 = N0*Q; % 杩欓噷娌℃湁 铏氭嫙鍚戦噺鎵╁厖锛屾墍浠ヤ俊鍣瘮娌℃湁鍙樺寲锛侊紒
     elseif par.L == 3
         Q1 = sqrt(5);    
 %         Q1 = 2;  
@@ -60,18 +60,16 @@ function [x, beta] = ADMM_Leo(par,s,H,N0)
                 break;
           end         
     end
-%     disp(k)
-    
-%     k
-%     x0 = v;
-     xRest = sign(v); 
-%      xRest = par.quantizer(v); 
-     x0 = 1/sqrt(2*par.B)*C*xRest; 
-%      x0 = C*xRest; 
+
+     quantizer = @(z) (sign(real(z)) + 1i*sign(imag(z)))/sqrt(2*par.B);
+     xRest = quantizer(v); 
+
+     x0 = C*xRest; 
+
      x = (x0(1:par.B,1)+1i*x0(par.B+1:2*par.B,1)); %*Q  *Q*par.B  1/sqrt(2*par.B)*
     
     beta = real(x'*H'*s)/(norm(H*x,2)^2+par.U*N0); 
-%     beta = norm(x0)/sqrt(par.B*bps);
+
 end
 
 
