@@ -10,7 +10,7 @@ Source files for our recent published paper: Efficient Nonlinear Precoding for M
 
 ## Notes:
 
-(1)  Our simulation platform is revised from the Studer's simulator provided by "Quantized Precoding for Massive MU-MIMO", which is  avaible at https://github.com/quantizedmassivemimo/1bit_precoding; We have updated the proposed prcoder (ADMM_Leo--v2.m); Interested readers can directly add the file (ADMM_Leo--v2.m) into the Studer's simulator for performance comparasion; The lastest verison of the proposed precoder can support MU-MIMO with multi-bit DACs;
+(1)  Our simulation platform is revised from the Studer's simulator provided by "Quantized Precoding for Massive MU-MIMO", which is  avaible at https://github.com/quantizedmassivemimo/1bit_precoding; We have updated the proposed prcoder (ADMM_Leo--v2.m); Interested readers can directly add the file (ADMM_Leo--v2.m) into the Studer's simulator for performance comparasion; The lastest verison of the proposed precoder can support MU-MIMO with multi-bit DACs; We are greatly appreciated for Dr S. Jacobsson and Dr. Studer's works which prvide fundemental simulation paltform and benchmark precoders(i.e. MRT, ZF, WF, SDR, SQUID). Their works have far-reaching effects on our work.
 
 
 (2)  If SDR-based precoders are employed for comparasion, you should establish CVX which is avaliable at http://cvxr.com/cvx/;
