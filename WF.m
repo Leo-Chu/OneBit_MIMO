@@ -1,3 +1,4 @@
+We borrow this code from https://github.com/quantizedmassivemimo/1bit_precoding;
 
 function [x, beta, P] = WF(s, H, N0)
 
