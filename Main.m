@@ -1,5 +1,6 @@
 % Bit  Error Rate 
 %% developed by Lei Chu, Fei Wen and Robert Qiu
+%% We develop this code based on https://github.com/quantizedmassivemimo/1bit_precoding;
 
 %%% main simulation file for our published paper: Efficient Nonlinear Precoding for Massive
 %%%  MU-MIMO Downlink Systems with 1-Bit DACs; 
