@@ -65,8 +65,7 @@ for t=1:parD.trials
         for k=1:length(NT)
             parD.N = NT(k);    
             parD.lsb = lsb_list(parD.B-1)/sqrt(2*NT(k)); 
-            [~, parD.labels, parD.thresholds, delta] = uqz(1, parD.lsb, parD.B); 
-            parD.quantizer = @(x) uqz(x, parD.lsb, 1)/sqrt(NT(k)); 
+            parD.quantizer = @(x) uqz(x,1)/sqrt(NT(k)); 
             parD.bussgang = parD.lsb*sqrt(NT(k)/pi)...
                 *sum(exp(-NT(k)*parD.lsb^2*((1:parD.B-1)-parD.B/2).^2)); 
             H = sqrt(0.5)*(randn(parD.U,NT(k))+1i*randn(parD.U,NT(k)));
