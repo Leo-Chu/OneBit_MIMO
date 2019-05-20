@@ -24,7 +24,7 @@ fundamental simulation platform and benchmark precoders (e.g., MRT, ZF, WF, SDR 
 (3)  If you use our codes, please cite our paper; 
 Chu L, Wen F, Li L, et al. Efficient Nonlinear Precoding for Massive MU-MIMO Downlink Systems with 1-Bit DACs[J]. 2018. Avaliable at  https://arxiv.org/abs/1804.08839;
 
-(4) If you get any question for our codes, please contact: leochu@sjtu.edu.cn;
+(4) If you get any question for our codes, please contact: leochu@sjtu.edu.cn or uestcahcl@gmail.com;
 
 (5)  We are appreciated for Dr. Studer from Cornell University for the discussions for setting the paramters in SQUID preocder in the case of small size MU-MIMO. 
 
