@@ -45,6 +45,8 @@ function [x, beta, zr,vr] = ADMM_Leo(par,s,H,N0)
           
           vr = [vr, norm(v-vm1)/norm(v)];
           zr = [zr, norm(z-zm1)/norm(z)];
+          
+%  line 50-52 should be deleted when peforming convergence analysis!!!!!!          
           if norm(v-vm1)<epsilon
                 break;
           end         
