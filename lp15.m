@@ -5,12 +5,11 @@ close all; clear all; clc
 parD.b = 1; % 1 means 1 bit
 parD.U = 4; % number of UEs
 NT =  [16, 32, 64, 128, 256]; % number of BS antennas
-parD.trials = 1e3; % number of Monte-Carlo trials (transmissions)
+parD.trials = 1e0; % number of Monte-Carlo trials (transmissions)
 parD.rHe  = 0;% relative channel estimate error
 parD.SNRdB_list = 0; % list of SNR [dB] values to be simulated 
 parD.mod = 'QPSK'; % modulation type: 'QPSK','16QAM','64QAM'
-parD.precoder =  {'MRT', 'WF', 'ZF','SQUID','ADMM','SDR1'};
-
+parD.precoder =  {'MRT', 'WF', 'ZF',  'SQUID', 'Proposed', 'SDR', 'ZFi'};
 
 switch (parD.mod)
     case 'QPSK'
@@ -65,7 +64,8 @@ for t=1:parD.trials
         for k=1:length(NT)
             parD.N = NT(k);    
             parD.lsb = lsb_list(parD.B-1)/sqrt(2*NT(k)); 
-            parD.quantizer = @(x) uqz(x,1)/sqrt(NT(k)); 
+            [~, parD.labels, parD.thresholds, delta] = uqz(1, parD.lsb, parD.B); 
+            parD.quantizer = @(x) uqz(x, parD.lsb, 1)/sqrt(NT(k)); 
             parD.bussgang = parD.lsb*sqrt(NT(k)/pi)...
                 *sum(exp(-NT(k)*parD.lsb^2*((1:parD.B-1)-parD.B/2).^2)); 
             H = sqrt(0.5)*(randn(parD.U,NT(k))+1i*randn(parD.U,NT(k)));
@@ -90,15 +90,15 @@ for t=1:parD.trials
                     tic
                     [z, beta] = WF(s,H1,N0); tt = toc;
                     x = parD.quantizer(z); beta = beta/parD.bussgang;       
-                case 'SQUID'       
-                    parD.b = 1; tic
-                    [x, beta,xRest] = SQUID(parD,s,H1,N0);  tt = toc;
-                case 'SDR'    
+                 case 'Proposed' 
+                    parD.b = 1;   tic  
+                    [x, beta, ~,~] = ADMM_Leo(parD,s,H1,N0); tt = toc;
+                case 'SQUID' 
+                    parD.b = 1;   tic  
+                    [x, beta] = SQUID(parD,s,H1,N0); tt = toc;
+                case 'SDR'   
                     parD.b = 1; tic 
                     [x, beta] = SDR_A1bit(parD,s,H1,N0); tt = toc;
-                case 'ADMM' 
-                    parD.b = 1;   tic  
-                    [x, beta, ~,~] = ADMM_Leo(parD,s,H1,N0); tt = toc;% vrz = [vrz vr];
             end
 
             Hx = H*x; 
@@ -111,16 +111,15 @@ end
 qq = [16, 32, 64, 128, 256];
 % CT = CT/parD.trials; % computaional time
 
-semilogy(qq,CT(1,:),'-d',qq,CT(2,:),'-*',qq,CT(3,:) ,'-^',qq,CT(4,:) ,'-+',...
+p = semilogy(qq,CT(1,:),'-d',qq,CT(2,:),'-*',qq,CT(3,:) ,'-^',qq,CT(4,:) ,'-+',...
         qq,CT(5,:),'->',qq,CT(6,:),'-<',qq,CT(7,:) ,'-',...
         'LineWidth',2);
 
 grid on
 
-
 xlim([16 256])
 
-legend('MRT', 'WF', 'ZF',  'SQUID', 'Proposed', 'SDR', 'ZFi',3) 
+legend('MRT', 'WF', 'ZF',  'SQUID', 'Proposed', 'SDR', 'ZFi') 
 
 xlabel('Number of transmit antennas')
 ylabel('Computaional time')
