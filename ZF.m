@@ -1,4 +1,4 @@
-We borrow this code from https://github.com/quantizedmassivemimo/1bit_precoding;
+%%%%We borrow this code from https://github.com/quantizedmassivemimo/1bit_precoding;
 
 function [x, beta, P] = ZF(s, H)
 
