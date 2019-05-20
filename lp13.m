@@ -5,11 +5,11 @@ close all; clear all; clc
 parD.b = 1; % 1 means 1 bit
 parD.U = 10; % number of UEs
 parD.N =  128; % number of BS antennas
-parD.trials = 2e3; % number of Monte-Carlo trials (transmissions)
+parD.trials = 2e1; % number of Monte-Carlo trials (transmissions)
 parD.rHe = 0; % relative channel estimate error
 parD.SNRdB_list = -10:2:14; % list of SNR [dB] values to be simulated 
 mod = {'QPSK','16QAM','64QAM'}; % modulation type: 'QPSK','16QAM','64QAM'
-parD.precoder =  {'ADMM_Leo1','ZFi'};
+parD.precoder =  {'Proposed','ZFi'};
 
 %%
 
@@ -66,9 +66,7 @@ for t=1:parD.trials
                     switch (parD.precoder{pp})
                         case 'ZFi'
                             [x, beta] = ZF(s,H1); 
-                        case 'ADMM1' 
-                            parD.b = 1; [x, beta,xRest] = ADMM_Mbits(parD,s,H1,N0);  
-                        case 'ADMM_Leo1' 
+                        case 'Proposed' 
                             parD.b = 1;     
                             [x, beta, vr] = ADMM_Leo(parD,s,H1,N0);  vrz = [vrz vr];
                     end
