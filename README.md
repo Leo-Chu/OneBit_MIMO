@@ -22,7 +22,7 @@ fundamental simulation platform and benchmark precoders (e.g., MRT, ZF, WF, SDR 
 (2)  If SDR-based precoders are employed for comparasion, you should establish CVX which is avaliable at http://cvxr.com/cvx/;
 
 (3)  If you use our codes, please cite our paper; 
-Chu, Lei, Fei Wen, Lily Li, and Robert Qiu. Efficient Nonlinear Precoding for Massive MU-MIMO Downlink Systems with 1-Bit DACs[J]. To appear in the IEEE Transactions on Wireless Communications, 2019. Avaliable at  https://arxiv.org/abs/1804.08839;
+Lei Chu,  Fei Wen, Lily Li, and Robert Qiu. Efficient Nonlinear Precoding for Massive MU-MIMO Downlink Systems with 1-Bit DACs[J]. To appear in the IEEE Transactions on Wireless Communications, 2019. Avaliable at  https://arxiv.org/abs/1804.08839;
 
 (4) If you get any question for our codes, please contact: leochu@sjtu.edu.cn or uestcahcl@gmail.com;
 
