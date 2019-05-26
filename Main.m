@@ -80,7 +80,7 @@ for t=1:parD.trials
         sqrt(parD.rHe)*(randn(parD.U,parD.N)+1i*randn(parD.U,parD.N)); 
     for B = 1:length(parD.b)
             
-             parD.quantizer = @(x) uqz(x, 1)/sqrt(parD.N); 
+             parD.quantizer = @(x) (sign(real(x)) + 1i*sign(imag(x)))/sqrt(2*parD.N); 
              parD.bg = sqrt(pi/2);   % bg decomposition factor
                          
             for pp=1:length(parD.precoder) 
