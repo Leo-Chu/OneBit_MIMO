@@ -105,7 +105,7 @@ for t=1:parD.trials
                             [z, beta] = WF(s,H1,N0);
                             x = parD.quantizer(z); beta = beta/parD.bg;       
                         case 'SQUID' 
-                            parD.b = 1; [x, beta,xRest] = SQUID(parD,s,H1,N0);  % only support for 1bit
+                            parD.b = 1; [x, beta] = SQUID(parD,s,H1,N0);  % only support for 1bit
                         case 'SDR1'    
                             parD.b = 1; 
                             [x, beta] = SDR_A1bit(parD,s,H1,N0);  % only support for 1bit
