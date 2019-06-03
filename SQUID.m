@@ -1,6 +1,6 @@
 
 function [x, beta] = SQUID(par,s,H,N0)
-    
+    par.B = 2^par.b;
     % convert to real-valued channel
     HR = [ real(H) -imag(H) ; imag(H) real(H) ];
     sR = [ real(s) ; imag(s) ];
