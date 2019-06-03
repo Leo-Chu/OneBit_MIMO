@@ -1,6 +1,6 @@
 
 function [x, beta] = SQUID(par,s,H,N0)
-    par.B = 2^par.b;
+    
     % convert to real-valued channel
     HR = [ real(H) -imag(H) ; imag(H) real(H) ];
     sR = [ real(s) ; imag(s) ];
@@ -21,7 +21,7 @@ function [x, beta] = SQUID(par,s,H,N0)
     A = HR'*HR + 0.5/gain*eye(par.N*2);
     sREG = A\(HR'*sR);
     
-    if par.B == 2
+    if par.b == 1
       
         % SQUID loop
         for t=1:100
